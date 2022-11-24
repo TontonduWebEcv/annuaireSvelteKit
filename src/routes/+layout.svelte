@@ -5,9 +5,9 @@
 <div class="app">
   <main>
     <nav>
-      <a href="/">Home</a>
-      <a href="/about">About</a>
       <a href="/user">Users</a>
+      <a href="/compose">Compose your team</a>
+      <a href="/search">Search</a>
     </nav>
     <slot />
   </main>
