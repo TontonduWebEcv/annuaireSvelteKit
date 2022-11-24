@@ -1,6 +1,7 @@
 <script>
   /** @type {import('./$types').PageLoad} */
   export let data;
+
   function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -10,13 +11,14 @@
 </script>
 
 <div class="text-column">
-  <h1>Settings page</h1>
+  <h1>Users page</h1>
 </div>
 <div class="container">
   {#each Object.entries(data) as [id, user]}
     <div class="card">
-      <div>
+      <div class="img">
         <img src={`https://robohash.org/${random}${id}`} alt="robot" />
+        <span class="trust">Don't trust in my picture</span>
       </div>
       <div>
         <span> Nom :</span>
@@ -27,40 +29,7 @@
         {user.username}
       </div>
       <div>
-        <span> Email :</span>
-        {user.email}
-      </div>
-      <div>
-        <span> Rue :</span>
-        {user.address.street}
-      </div>
-      <div>
-        <span> Appartement :</span>
-        {user.address.suite}
-      </div>
-      <div>
-        <span> City :</span>
-        {user.address.city}
-      </div>
-      <div>
-        <span> ZIP :</span>
-        {user.address.zipcode}
-      </div>
-      <div>
-        <span> Phone :</span>
-        {user.phone}
-      </div>
-      <div>
-        <span> Compagny name :</span>
-        {user.company.name}
-      </div>
-      <div>
-        <span> Compagny catchPhrase :</span>
-        {user.company.catchPhrase}
-      </div>
-      <div>
-        <span> Compagny bs :</span>
-        {user.company.bs}
+        <a href={`user/${user.id}`}>Follow me</a>
       </div>
     </div>
   {/each}
@@ -80,9 +49,19 @@
     border: 1px black solid;
     padding: 5px;
   }
-  .header {
-  }
   span {
     color: black;
+  }
+  .img {
+    height: 300px;
+    width: 300px;
+  }
+  .trust {
+    position: relative;
+    z-index: 10;
+    bottom: 50px;
+    left: 50px;
+    color: red;
+    background-color: white;
   }
 </style>
